@@ -11,5 +11,5 @@ services:
     ports:
       - 8080:80
     restart: always
-    command: php -S 0.0.0.0:80  /var/www/html/public/index.php
+    command: 'composer startup'
     
