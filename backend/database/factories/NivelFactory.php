@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class NivelFactory extends Factory
 {
+    protected $model = \App\Models\Nivel::class;
+    
     /**
      * Define the model's default state.
      *

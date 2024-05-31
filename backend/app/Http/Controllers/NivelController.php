@@ -31,9 +31,8 @@ class NivelController extends Controller
      */
     public function store(StoreNivelRequest $request)
     {
-         $nivel = Nivel::create($request->validated());
-
-         return response()->json($nivel, 201);
+        $nivel = Nivel::create($request->validated());
+        return new NivelResource($nivel);
     }
 
     /**
@@ -56,8 +55,17 @@ class NivelController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Nivel $nivel)
-    {        
-        return response()->json(['message' => 'Nível deletado com sucesso'], 200);        
+    public function destroy(Nivel $nivei)
+    {
+        if($nivei->desenvolvedores->count() > 0) {
+            return response()->json(['message' => 'Nível não pode ser excluído, pois está associado a um ou mais desenvolvedores'], 400);
+        }
+        
+        try {
+            $nivei->delete();
+            return response()->json(['message' => 'Nível excluído com sucesso'], 204);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erro ao excluir nível'], 400);
+        }
     }
 }
