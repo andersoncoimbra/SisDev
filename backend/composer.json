@@ -52,7 +52,7 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
             "@php artisan migrate --force --seed",
-            "@php -S 0.0.0.0:8888 public/index.php"
+            "@php artisan serve --host 0.0.0.0"
         ]
     },
     "extra": {
