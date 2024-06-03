@@ -26,7 +26,7 @@ Sistema de assinaturas
    ```shell
    docker compose up
 
-    Aguarde ate finalizar o proceso de instalação (composer, npm, migrations, seeders)
+- Aguarde ate finalizar o proceso de instalação (composer, npm, migrations, seeders)
 4. Acesse a url http://localhost:8080
 
 ## Frontend
