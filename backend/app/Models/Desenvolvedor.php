@@ -30,5 +30,9 @@ class Desenvolvedor extends Model
         static::creating(function ($model) {
             $model->idade = date('Y') - date('Y', strtotime($model->data_nascimento));
         });
+
+        static::updating(function ($model) {
+            $model->idade = date('Y') - date('Y', strtotime($model->data_nascimento));
+        });
     }
 }

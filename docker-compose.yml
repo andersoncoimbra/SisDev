@@ -12,4 +12,39 @@ services:
       - 8080:8000
     restart: always
     command: 'composer startup'
+    depends_on:
+      - db
+    networks:
+      - app-network
+  node:
+    tty: true
+    container_name: frontend
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./frontend:/var/www/html
+    command: 'npm run start'
+    ports:
+      - 80:5173
+    restart: always
+    networks:
+      - app-network
+    depends_on:
+      - php
+  db:  
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: sisdev
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - app-network
+    ports:
+      - 5432:5432
+networks:
+  app-network:
+    driver: bridge
+    
     
