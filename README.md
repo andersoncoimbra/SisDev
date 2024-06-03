@@ -21,7 +21,7 @@ Sistema de assinaturas
    git clone https://github.com/andersoncoimbra/SisDev
 2. Entre no diretorio do projeto CadEletro
    ```shell
-   cd desafio-andersoncoimbra
+   cd SisDev
 3. Ative os containers via docker-compose
    ```shell
    docker compose up
