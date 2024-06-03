@@ -39,6 +39,8 @@ services:
     environment:
       POSTGRES_DB: sisdev
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
     networks:
       - app-network
     ports:

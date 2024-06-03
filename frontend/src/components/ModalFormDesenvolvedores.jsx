@@ -28,14 +28,14 @@ import {
     const [niveis, setNiveis] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/niveis")
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+"/niveis")
             .then((res) => res.json())
             .then((data) => setNiveis(data.data));
     }, [setNiveis]);
 
   
     const handleSave = () => {
-        fetch("http://localhost:8080/api/desenvolvedores", {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+"/desenvolvedores", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,7 +58,7 @@ import {
     };
 
     const handleUpdate = () => {
-        fetch(`http://localhost:8080/api/desenvolvedores/${dataEdit.id}`, {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+`/desenvolvedores/${dataEdit.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

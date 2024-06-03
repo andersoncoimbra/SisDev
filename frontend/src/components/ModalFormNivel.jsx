@@ -28,7 +28,7 @@ import {
 
   
     const handleSave = () => {
-        fetch("http://localhost:8080/api/niveis", {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+"/niveis", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -47,7 +47,7 @@ import {
     };
 
     const handleUpdate = () => {
-        fetch(`http://localhost:8080/api/niveis/${dataEdit.id}`, {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+`/niveis/${dataEdit.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

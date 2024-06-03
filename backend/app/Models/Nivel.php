@@ -15,4 +15,9 @@ class Nivel extends Model
     {
         return $this->hasMany(Desenvolvedor::class);
     }
+
+    public function countDesenvolvedores()
+    {
+        return $this->desenvolvedores->count();
+    }
 }

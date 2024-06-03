@@ -5,13 +5,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import ModalFormNivel from "../components/ModalFormNivel";
 
 
+
 const Nivel = () => {
     const [data, setData] = useState([]);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [dataEdit, setDataEdit] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:8080/api/niveis")
+      console.log(import.meta.env.VITE_REACT_APP_URL_API);
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+"/niveis")
             .then((res) => res.json())
             .then((data) => setData(data.data));
     }, [setData]);
@@ -19,7 +21,8 @@ const Nivel = () => {
     const columns = React.useMemo(
         () => [
         { Header: "ID", accessor: "id" },
-        { Header: "Nivel", accessor: "nivel" },      
+        { Header: "Nivel", accessor: "nivel" },
+        { Header: "Desenvolvedores", accessor: "total_desenvolvedores" },
         ], []);
 
     const handleUpdate = (data) => {            
@@ -28,7 +31,7 @@ const Nivel = () => {
     };
 
     const handleDelete = (item) => {
-        fetch(`http://localhost:8080/api/niveis/${item.id}`, {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+`/niveis/${item.id}`, {
             method: "DELETE",
         })
             .then(() => {
