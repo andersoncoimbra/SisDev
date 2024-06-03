@@ -1,4 +1,4 @@
-# Assinaturas
+# SisDev
 Sistema de assinaturas
 
 ## Tecnologias
