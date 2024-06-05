@@ -23,7 +23,7 @@ const Desenvolvedores = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/desenvolvedores")
+    fetch(import.meta.env.VITE_REACT_APP_URL_API+"/desenvolvedores")
         .then((res) => res.json())
         .then((data) => setData(data.data));
   }, [setData]);
@@ -49,7 +49,7 @@ const Desenvolvedores = () => {
    
 
     const handleDelete = (item) => {
-        fetch(`http://localhost:8080/api/desenvolvedores/${item.id}`, {
+        fetch(import.meta.env.VITE_REACT_APP_URL_API+`/desenvolvedores/${item.id}`, {
             method: "DELETE",
         })
           .then(() => {
